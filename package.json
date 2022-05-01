@@ -10,12 +10,22 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@fontsource/roboto": "^4.5.5",
+    "@fortawesome/react-fontawesome": "^0.1.18",
+    "@mui/icons-material": "^5.6.2",
+    "@mui/material": "^5.6.3",
     "expo": "~44.0.0",
     "expo-status-bar": "~1.2.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
+    "react-grid-gallery": "^0.5.5",
+    "react-images-viewer": "^1.7.1",
+    "react-justified-grid": "^1.0.0",
     "react-native": "0.64.3",
-    "react-native-web": "0.17.1"
+    "react-native-web": "0.17.1",
+    "react-swipeable": "^7.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"
