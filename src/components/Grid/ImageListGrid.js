@@ -1,10 +1,11 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import ImageListItem, {
-  imageListItemClasses
+  imageListItemClasses 
 } from "@mui/material/ImageListItem";
-import Checkbox from '@mui/material/Checkbox';
+import ImageListItemBar from "@mui/material/ImageListItemBar"
 import IconButton from "@mui/material/IconButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./ImageListGrid.css"
@@ -47,6 +48,28 @@ export default function ImageListGrid() {
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
               alt={item.title}
               loading="lazy"
+            />
+            <ImageListItemBar
+              sx={{
+                background:
+                  'linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, ' +
+                  'rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+              }}
+              position="top"
+              actionIcon={
+                <IconButton key={item.img}
+                  sx={{ color: 'white' }}
+                  aria-label={`star ${item.title}`}
+                  onTouchTap={() => { 
+                    this.setState({
+                      isIconView: !this.state.isIconView
+                    })
+                   }}
+                > {/* Fix state TODO*/}
+                  {this.state.isIconView ? <CheckBoxOutlineBlankIcon /> : <CheckBoxIcon />}
+                </IconButton>
+              }
+              actionPosition="right"
             />
           </ImageListItem>
         ))}
