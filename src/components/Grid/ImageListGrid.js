@@ -9,6 +9,7 @@ import ImageListItemBar from "@mui/material/ImageListItemBar"
 import IconButton from "@mui/material/IconButton";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import "./ImageListGrid.css"
+import { useState } from 'react';
 
 const theme = createTheme({
   breakpoints: {
@@ -44,6 +45,7 @@ export default function ImageListGrid() {
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img
+              isclicked="0"
               src={`${item.img}?w=248&fit=crop&auto=format`}
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
               alt={item.title}
@@ -60,16 +62,23 @@ export default function ImageListGrid() {
                 <IconButton key={item.img}
                   sx={{ color: 'white' }}
                   aria-label={`star ${item.title}`}
-                  onTouchTap={() => { 
-                    this.setState({
-                      isIconView: !this.state.isIconView
-                    })
-                   }}
-                > {/* Fix state TODO*/}
-                  {this.state.isIconView ? <CheckBoxOutlineBlankIcon /> : <CheckBoxIcon />}
+                  onClick={() => { 
+                      if(item.isclicked == "0")
+                      {
+                        item.isclicked = "1"
+                      }
+                      else
+                      {
+                        item.isclicked = "0"
+                      }
+                      console.log(item.isclicked)
+                  }}
+                >
+                { item.isclicked == 1 ? <CheckBoxIcon /> : <CheckBoxOutlineBlankIcon /> }
                 </IconButton>
               }
               actionPosition="right"
+              
             />
           </ImageListItem>
         ))}
